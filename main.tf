@@ -26,7 +26,7 @@ data "google_iam_policy" "admin-project" {
     role = "roles/editor"
 
     members = [
-      "user:romil@example.com",
+      #"user:romil@example.com",
       "group:rajeevgroup@googlegroup.com",
       "serviceAccount:407536364561-compute@developer.gserviceaccount.com"
     ]
@@ -38,7 +38,7 @@ resource "google_project_iam_binding" "project-binding" {
   role    = "roles/editor"
 
   members = [
-    "user:jane@example.com",
+    #"user:jane@example.com",
     "group:rajeevgroup@googlegroup.com",
     "serviceAccount:407536364561-compute@developer.gserviceaccount.com"
   ]
@@ -47,7 +47,8 @@ resource "google_project_iam_binding" "project-binding" {
 resource "google_project_iam_member" "project-iam-member" {
   project = "airline1-sabre-wolverine"
   role    = "roles/editor"
-  member  = "user:ravi@example.com"
+  #member  = "user:ravi@example.com"
+  member = "group:rajeevgroup@googlegroup.com"
   
 }
 
@@ -61,7 +62,7 @@ data "google_iam_policy" "admin" {
     role = "roles/editor"
 
     members = [
-      "user:mahesh@example.com",
+      #"user:mahesh@example.com",
       "group:rajeevgroup@googlegroup.com",
       "serviceAccount:407536364561-compute@developer.gserviceaccount.com"
     ]
@@ -73,7 +74,7 @@ resource "google_organization_iam_binding" "organization-binding" {
   role    = "roles/editor"
 
   members = [
-    "user:jane@example.com",
+    #"user:jane@example.com",
     "serviceAccount:407536364561-compute@developer.gserviceaccount.com"
   ]
 }
@@ -81,7 +82,8 @@ resource "google_organization_iam_binding" "organization-binding" {
 resource "google_organization_iam_member" "organization-member" {
   org_id      = "airline1"  
   role    = "roles/editor"
-  member  = "user:rajeev@example.com"
+  #member  = "user:rajeev@example.com"
+  member = "group:rajeevgroup@googlegroup.com"
 }
 
 
