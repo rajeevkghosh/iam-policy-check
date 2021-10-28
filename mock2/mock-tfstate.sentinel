@@ -1,0 +1,87 @@
+import "strings"
+import "types"
+
+outputs = {}
+
+_modules = {
+	"root": {
+		"data": {
+			"google_iam_policy": {
+				"admin": {
+					0: {
+						"attr": {
+							"audit_config": null,
+							"binding": [
+								{
+									"condition": [],
+									"members": [
+										"group:rajeevgroup@googlegroup.com",
+										"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
+									],
+									"role": "roles/editor",
+								},
+							],
+							"id":          "3255206999",
+							"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
+						},
+						"depends_on": [],
+						"id":         "3255206999",
+						"tainted":    false,
+					},
+				},
+				"admin-project": {
+					0: {
+						"attr": {
+							"audit_config": null,
+							"binding": [
+								{
+									"condition": [],
+									"members": [
+										"group:rajeevgroup@googlegroup.com",
+										"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
+									],
+									"role": "roles/editor",
+								},
+							],
+							"id":          "3255206999",
+							"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
+						},
+						"depends_on": [],
+						"id":         "3255206999",
+						"tainted":    false,
+					},
+				},
+			},
+		},
+		"path":      [],
+		"resources": {},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "1.0.9"
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

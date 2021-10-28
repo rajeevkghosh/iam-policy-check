@@ -1,0 +1,215 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {
+			"google_iam_policy": {
+				"admin": {
+					"config": {
+						"binding": [
+							{
+								"members": [
+									"user:mahesh@example.com",
+									"group:rajeevgroup@googlegroup.com",
+									"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
+								],
+								"role": "roles/editor",
+							},
+						],
+					},
+					"provisioners": null,
+					"references": {
+						"binding": [
+							{
+								"members": [],
+								"role":    [],
+							},
+						],
+					},
+				},
+				"admin-project": {
+					"config": {
+						"binding": [
+							{
+								"members": [
+									"user:romil@example.com",
+									"group:rajeevgroup@googlegroup.com",
+									"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
+								],
+								"role": "roles/editor",
+							},
+						],
+					},
+					"provisioners": null,
+					"references": {
+						"binding": [
+							{
+								"members": [],
+								"role":    [],
+							},
+						],
+					},
+				},
+			},
+		},
+		"modules": {},
+		"outputs": {},
+		"providers": {
+			"google": {
+				"alias": {
+					"": {
+						"config": {},
+						"references": {
+							"access_token": [
+								"var.access_token",
+							],
+						},
+						"version": "",
+					},
+				},
+				"config": {},
+				"references": {
+					"access_token": [
+						"var.access_token",
+					],
+				},
+				"version": "",
+			},
+		},
+		"resources": {
+			"google_organization_iam_binding": {
+				"organization-binding": {
+					"config": {
+						"members": [
+							"user:jane@example.com",
+							"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
+						],
+						"org_id": "airline1",
+						"role":   "roles/editor",
+					},
+					"provisioners": null,
+					"references": {
+						"members": [],
+						"org_id":  [],
+						"role":    [],
+					},
+				},
+			},
+			"google_organization_iam_member": {
+				"organization-member": {
+					"config": {
+						"member": "user:rajeev@example.com",
+						"org_id": "airline1",
+						"role":   "roles/editor",
+					},
+					"provisioners": null,
+					"references": {
+						"member": [],
+						"org_id": [],
+						"role":   [],
+					},
+				},
+			},
+			"google_organization_iam_policy": {
+				"organization": {
+					"config": {
+						"org_id": "airline1",
+					},
+					"provisioners": null,
+					"references": {
+						"org_id": [],
+						"policy_data": [
+							"data.google_iam_policy.admin.policy_data",
+							"data.google_iam_policy.admin",
+						],
+					},
+				},
+			},
+			"google_project_iam_binding": {
+				"project-binding": {
+					"config": {
+						"members": [
+							"user:jane@example.com",
+							"group:rajeevgroup@googlegroup.com",
+							"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
+						],
+						"project": "airline1-sabre-wolverine",
+						"role":    "roles/editor",
+					},
+					"provisioners": null,
+					"references": {
+						"members": [],
+						"project": [],
+						"role":    [],
+					},
+				},
+			},
+			"google_project_iam_member": {
+				"project-iam-member": {
+					"config": {
+						"member":  "user:ravi@example.com",
+						"project": "airline1-sabre-wolverine",
+						"role":    "roles/editor",
+					},
+					"provisioners": null,
+					"references": {
+						"member":  [],
+						"project": [],
+						"role":    [],
+					},
+				},
+			},
+			"google_project_iam_policy": {
+				"project": {
+					"config": {
+						"project": "airline1-sabre-wolverine",
+					},
+					"provisioners": null,
+					"references": {
+						"policy_data": [
+							"data.google_iam_policy.admin-project.policy_data",
+							"data.google_iam_policy.admin-project",
+						],
+						"project": [],
+					},
+				},
+			},
+		},
+		"variables": {
+			"access_token": {
+				"default":     null,
+				"description": "access token",
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+modules = _modules.root.modules
+providers = _modules.root.providers
+resources = _modules.root.resources
+variables = _modules.root.variables
+outputs = _modules.root.outputs

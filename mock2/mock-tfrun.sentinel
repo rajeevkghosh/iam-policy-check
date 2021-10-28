@@ -1,0 +1,37 @@
+id = "run-bHckJp2jR64GJ4Va"
+created_at = "2021-10-28T09:19:13.065Z"
+message = "Triggered via UI"
+commit_sha = "8bbf912d7533c889d480ea72f1bd187a46ab14e5"
+speculative = false
+is_destroy = false
+refresh = true
+refresh_only = false
+replace_addrs = null
+target_addrs = null
+
+variables = {
+	"access_token": {
+		"category":  "terraform",
+		"sensitive": true,
+	},
+}
+
+organization = {
+	"name": "ashwinknaik",
+}
+
+workspace = {
+	"auto_apply":  false,
+	"created_at":  "2021-10-27T16:36:28.374Z",
+	"description": null,
+	"id":          "ws-k7A4KN1ESnQvsNsj",
+	"name":        "iam-policy-check",
+	"tags":        [],
+	"vcs_repo": {
+		"branch":             "",
+		"display_identifier": "rajeevkghosh/iam-policy-check",
+		"identifier":         "rajeevkghosh/iam-policy-check",
+		"ingress_submodules": false,
+	},
+	"working_directory": "",
+}

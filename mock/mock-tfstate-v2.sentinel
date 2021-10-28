@@ -1,0 +1,62 @@
+terraform_version = "1.0.9"
+
+outputs = {}
+
+resources = {
+	"google_iam_policy.admin": {
+		"address":        "google_iam_policy.admin",
+		"depends_on":     [],
+		"deposed_key":    "",
+		"index":          null,
+		"mode":           "data",
+		"module_address": "",
+		"name":           "admin",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"tainted":        false,
+		"type":           "google_iam_policy",
+		"values": {
+			"audit_config": null,
+			"binding": [
+				{
+					"condition": [],
+					"members": [
+						"group:rajeevgroup@googlegroup.com",
+						"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
+						"user:mahesh@example.com",
+					],
+					"role": "roles/editor",
+				},
+			],
+			"id":          "2041532742",
+			"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:mahesh@example.com\"],\"role\":\"roles/editor\"}]}",
+		},
+	},
+	"google_iam_policy.admin-project": {
+		"address":        "google_iam_policy.admin-project",
+		"depends_on":     [],
+		"deposed_key":    "",
+		"index":          null,
+		"mode":           "data",
+		"module_address": "",
+		"name":           "admin-project",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"tainted":        false,
+		"type":           "google_iam_policy",
+		"values": {
+			"audit_config": null,
+			"binding": [
+				{
+					"condition": [],
+					"members": [
+						"group:rajeevgroup@googlegroup.com",
+						"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
+						"user:romil@example.com",
+					],
+					"role": "roles/editor",
+				},
+			],
+			"id":          "634643336",
+			"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:romil@example.com\"],\"role\":\"roles/editor\"}]}",
+		},
+	},
+}
