@@ -18,7 +18,6 @@ planned_values = {
 				"condition": [],
 				"members": [
 					"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-					"user:jane@example.com",
 				],
 				"org_id": "airline1",
 				"role":   "roles/editor",
@@ -37,7 +36,7 @@ planned_values = {
 			"type":           "google_organization_iam_member",
 			"values": {
 				"condition": [],
-				"member":    "user:rajeev@example.com",
+				"member":    "group:rajeevgroup@googlegroup.com",
 				"org_id":    "airline1",
 				"role":      "roles/editor",
 			},
@@ -55,7 +54,7 @@ planned_values = {
 			"type":           "google_organization_iam_policy",
 			"values": {
 				"org_id":      "airline1",
-				"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:mahesh@example.com\"],\"role\":\"roles/editor\"}]}",
+				"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
 			},
 		},
 		"google_project_iam_binding.project-binding": {
@@ -74,7 +73,6 @@ planned_values = {
 				"members": [
 					"group:rajeevgroup@googlegroup.com",
 					"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-					"user:jane@example.com",
 				],
 				"project": "airline1-sabre-wolverine",
 				"role":    "roles/editor",
@@ -93,7 +91,7 @@ planned_values = {
 			"type":           "google_project_iam_member",
 			"values": {
 				"condition": [],
-				"member":    "user:ravi@example.com",
+				"member":    "group:rajeevgroup@googlegroup.com",
 				"project":   "airline1-sabre-wolverine",
 				"role":      "roles/editor",
 			},
@@ -110,7 +108,7 @@ planned_values = {
 			"tainted":        false,
 			"type":           "google_project_iam_policy",
 			"values": {
-				"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:romil@example.com\"],\"role\":\"roles/editor\"}]}",
+				"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
 				"project":     "airline1-sabre-wolverine",
 			},
 		},
@@ -135,7 +133,6 @@ resource_changes = {
 				"condition": [],
 				"members": [
 					"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-					"user:jane@example.com",
 				],
 				"org_id": "airline1",
 				"role":   "roles/editor",
@@ -145,7 +142,6 @@ resource_changes = {
 				"etag":      true,
 				"id":        true,
 				"members": [
-					false,
 					false,
 				],
 			},
@@ -167,7 +163,7 @@ resource_changes = {
 			],
 			"after": {
 				"condition": [],
-				"member":    "user:rajeev@example.com",
+				"member":    "group:rajeevgroup@googlegroup.com",
 				"org_id":    "airline1",
 				"role":      "roles/editor",
 			},
@@ -194,7 +190,7 @@ resource_changes = {
 			],
 			"after": {
 				"org_id":      "airline1",
-				"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:mahesh@example.com\"],\"role\":\"roles/editor\"}]}",
+				"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
 			},
 			"after_unknown": {
 				"etag": true,
@@ -221,7 +217,6 @@ resource_changes = {
 				"members": [
 					"group:rajeevgroup@googlegroup.com",
 					"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-					"user:jane@example.com",
 				],
 				"project": "airline1-sabre-wolverine",
 				"role":    "roles/editor",
@@ -231,7 +226,6 @@ resource_changes = {
 				"etag":      true,
 				"id":        true,
 				"members": [
-					false,
 					false,
 					false,
 				],
@@ -254,7 +248,7 @@ resource_changes = {
 			],
 			"after": {
 				"condition": [],
-				"member":    "user:ravi@example.com",
+				"member":    "group:rajeevgroup@googlegroup.com",
 				"project":   "airline1-sabre-wolverine",
 				"role":      "roles/editor",
 			},
@@ -280,7 +274,7 @@ resource_changes = {
 				"create",
 			],
 			"after": {
-				"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:romil@example.com\"],\"role\":\"roles/editor\"}]}",
+				"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
 				"project":     "airline1-sabre-wolverine",
 			},
 			"after_unknown": {
@@ -322,7 +316,6 @@ raw = {
 					"expressions": {
 						"members": {
 							"constant_value": [
-								"user:jane@example.com",
 								"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
 							],
 						},
@@ -343,7 +336,7 @@ raw = {
 					"address": "google_organization_iam_member.organization-member",
 					"expressions": {
 						"member": {
-							"constant_value": "user:rajeev@example.com",
+							"constant_value": "group:rajeevgroup@googlegroup.com",
 						},
 						"org_id": {
 							"constant_value": "airline1",
@@ -382,7 +375,6 @@ raw = {
 					"expressions": {
 						"members": {
 							"constant_value": [
-								"user:jane@example.com",
 								"group:rajeevgroup@googlegroup.com",
 								"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
 							],
@@ -404,7 +396,7 @@ raw = {
 					"address": "google_project_iam_member.project-iam-member",
 					"expressions": {
 						"member": {
-							"constant_value": "user:ravi@example.com",
+							"constant_value": "group:rajeevgroup@googlegroup.com",
 						},
 						"project": {
 							"constant_value": "airline1-sabre-wolverine",
@@ -445,7 +437,6 @@ raw = {
 							{
 								"members": {
 									"constant_value": [
-										"user:mahesh@example.com",
 										"group:rajeevgroup@googlegroup.com",
 										"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
 									],
@@ -469,7 +460,6 @@ raw = {
 							{
 								"members": {
 									"constant_value": [
-										"user:romil@example.com",
 										"group:rajeevgroup@googlegroup.com",
 										"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
 									],
@@ -509,7 +499,6 @@ raw = {
 						"condition": [],
 						"members": [
 							false,
-							false,
 						],
 					},
 					"type": "google_organization_iam_binding",
@@ -517,7 +506,6 @@ raw = {
 						"condition": [],
 						"members": [
 							"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-							"user:jane@example.com",
 						],
 						"org_id": "airline1",
 						"role":   "roles/editor",
@@ -535,7 +523,7 @@ raw = {
 					"type": "google_organization_iam_member",
 					"values": {
 						"condition": [],
-						"member":    "user:rajeev@example.com",
+						"member":    "group:rajeevgroup@googlegroup.com",
 						"org_id":    "airline1",
 						"role":      "roles/editor",
 					},
@@ -550,7 +538,7 @@ raw = {
 					"type":             "google_organization_iam_policy",
 					"values": {
 						"org_id":      "airline1",
-						"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:mahesh@example.com\"],\"role\":\"roles/editor\"}]}",
+						"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
 					},
 				},
 				{
@@ -564,7 +552,6 @@ raw = {
 						"members": [
 							false,
 							false,
-							false,
 						],
 					},
 					"type": "google_project_iam_binding",
@@ -573,7 +560,6 @@ raw = {
 						"members": [
 							"group:rajeevgroup@googlegroup.com",
 							"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-							"user:jane@example.com",
 						],
 						"project": "airline1-sabre-wolverine",
 						"role":    "roles/editor",
@@ -591,7 +577,7 @@ raw = {
 					"type": "google_project_iam_member",
 					"values": {
 						"condition": [],
-						"member":    "user:ravi@example.com",
+						"member":    "group:rajeevgroup@googlegroup.com",
 						"project":   "airline1-sabre-wolverine",
 						"role":      "roles/editor",
 					},
@@ -605,7 +591,7 @@ raw = {
 					"sensitive_values": {},
 					"type":             "google_project_iam_policy",
 					"values": {
-						"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:romil@example.com\"],\"role\":\"roles/editor\"}]}",
+						"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
 						"project":     "airline1-sabre-wolverine",
 					},
 				},
@@ -631,7 +617,6 @@ raw = {
 									"members": [
 										false,
 										false,
-										false,
 									],
 								},
 							],
@@ -645,13 +630,12 @@ raw = {
 									"members": [
 										"group:rajeevgroup@googlegroup.com",
 										"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-										"user:mahesh@example.com",
 									],
 									"role": "roles/editor",
 								},
 							],
-							"id":          "2041532742",
-							"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:mahesh@example.com\"],\"role\":\"roles/editor\"}]}",
+							"id":          "3255206999",
+							"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
 						},
 					},
 					{
@@ -667,7 +651,6 @@ raw = {
 									"members": [
 										false,
 										false,
-										false,
 									],
 								},
 							],
@@ -681,13 +664,12 @@ raw = {
 									"members": [
 										"group:rajeevgroup@googlegroup.com",
 										"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-										"user:romil@example.com",
 									],
 									"role": "roles/editor",
 								},
 							],
-							"id":          "634643336",
-							"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:romil@example.com\"],\"role\":\"roles/editor\"}]}",
+							"id":          "3255206999",
+							"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
 						},
 					},
 				],
@@ -705,7 +687,6 @@ raw = {
 					"condition": [],
 					"members": [
 						"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-						"user:jane@example.com",
 					],
 					"org_id": "airline1",
 					"role":   "roles/editor",
@@ -714,7 +695,6 @@ raw = {
 					"condition": [],
 					"members": [
 						false,
-						false,
 					],
 				},
 				"after_unknown": {
@@ -722,7 +702,6 @@ raw = {
 					"etag":      true,
 					"id":        true,
 					"members": [
-						false,
 						false,
 					],
 				},
@@ -742,7 +721,7 @@ raw = {
 				],
 				"after": {
 					"condition": [],
-					"member":    "user:rajeev@example.com",
+					"member":    "group:rajeevgroup@googlegroup.com",
 					"org_id":    "airline1",
 					"role":      "roles/editor",
 				},
@@ -770,7 +749,7 @@ raw = {
 				],
 				"after": {
 					"org_id":      "airline1",
-					"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:mahesh@example.com\"],\"role\":\"roles/editor\"}]}",
+					"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
 				},
 				"after_sensitive": {},
 				"after_unknown": {
@@ -796,7 +775,6 @@ raw = {
 					"members": [
 						"group:rajeevgroup@googlegroup.com",
 						"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-						"user:jane@example.com",
 					],
 					"project": "airline1-sabre-wolverine",
 					"role":    "roles/editor",
@@ -806,7 +784,6 @@ raw = {
 					"members": [
 						false,
 						false,
-						false,
 					],
 				},
 				"after_unknown": {
@@ -814,7 +791,6 @@ raw = {
 					"etag":      true,
 					"id":        true,
 					"members": [
-						false,
 						false,
 						false,
 					],
@@ -835,7 +811,7 @@ raw = {
 				],
 				"after": {
 					"condition": [],
-					"member":    "user:ravi@example.com",
+					"member":    "group:rajeevgroup@googlegroup.com",
 					"project":   "airline1-sabre-wolverine",
 					"role":      "roles/editor",
 				},
@@ -862,7 +838,7 @@ raw = {
 					"create",
 				],
 				"after": {
-					"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\",\"user:romil@example.com\"],\"role\":\"roles/editor\"}]}",
+					"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
 					"project":     "airline1-sabre-wolverine",
 				},
 				"after_sensitive": {},
