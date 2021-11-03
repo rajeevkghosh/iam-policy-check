@@ -133,7 +133,6 @@ resource_changes = {
 				"condition": [],
 				"members": [
 					"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-					"user:abhi@gmail.com",
 				],
 				"org_id": "airline1",
 				"role":   "roles/editor",
@@ -191,7 +190,7 @@ resource_changes = {
 			],
 			"after": {
 				"org_id":      "airline1",
-				"policy_data": "{\"bindings\":[{\"members\":[\"group:rajeevgroup@googlegroup.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
+				"policy_data": "{\"bindings\":[{\"members\":[\"user:rohan@gmail.com\",\"serviceAccount:407536364561-compute@developer.gserviceaccount.com\"],\"role\":\"roles/editor\"}]}",
 			},
 			"after_unknown": {
 				"etag": true,

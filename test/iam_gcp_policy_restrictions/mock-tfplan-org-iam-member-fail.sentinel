@@ -133,7 +133,6 @@ resource_changes = {
 				"condition": [],
 				"members": [
 					"serviceAccount:407536364561-compute@developer.gserviceaccount.com",
-					"user:abhi@gmail.com",
 				],
 				"org_id": "airline1",
 				"role":   "roles/editor",
@@ -164,7 +163,7 @@ resource_changes = {
 			],
 			"after": {
 				"condition": [],
-				"member":    "group:rajeevgroup@googlegroup.com",
+				"member":    "user:abhi@gmail.com",
 				"org_id":    "airline1",
 				"role":      "roles/editor",
 			},
