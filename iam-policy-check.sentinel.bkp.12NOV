@@ -12,8 +12,7 @@ import "types"
 import "json"
 
 # Resource Types Region Map
-allowed_prefix = ["group:", "serviceAccount:", "user:"]
-#allowed_prefix = ["group:"]
+allowed_prefix = ["group:", "serviceAccount:"]
 
 resourceTypesIamMap = {
 	"google_project_iam_policy": {
@@ -71,12 +70,9 @@ check_for_member = func(address, rc, mkey) {
 		}
 
 	}
-
 	for members_list as lst {
-		member_prefix = strings.split(lst,":")[0]+":"
-
-		print(member_prefix)
-			if not(member_prefix in allowed_prefix) {
+		#print(lst)
+			if not(strings.has_prefix(lst, allowed_prefix[0]) or strings.has_prefix(lst, allowed_prefix[1])) {
 				violations[address] = rc
 			}
 	}

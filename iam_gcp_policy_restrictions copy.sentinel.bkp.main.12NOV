@@ -12,8 +12,9 @@ import "types"
 import "json"
 
 # Resource Types Region Map
-allowed_prefix = ["group:", "serviceAccount:", "user:"]
-#allowed_prefix = ["group:"]
+allowed_prefix = ["group:", "serviceAccount:"]
+
+deny_services = ["google_project_iam_custom_role", "google_organization_iam_custom_role"]
 
 resourceTypesIamMap = {
 	"google_project_iam_policy": {
@@ -71,12 +72,9 @@ check_for_member = func(address, rc, mkey) {
 		}
 
 	}
-
 	for members_list as lst {
-		member_prefix = strings.split(lst,":")[0]+":"
-
-		print(member_prefix)
-			if not(member_prefix in allowed_prefix) {
+		 print(lst)
+			if not(strings.has_prefix(lst, allowed_prefix[0]) or strings.has_prefix(lst, allowed_prefix[1])) {
 				violations[address] = rc
 			}
 	}
@@ -103,5 +101,29 @@ for allResources as address, rc {
 
 GCP_IAM_ENTITY = rule { length(msgs) is 0 }
 
+
+#==============================================================================
+#custom Role Code
+#==============================================================================
+
+# Fetch all resources based on deny_services
+allRes = {}
+for deny_services as rt {
+	resources = plan.find_resources(rt)
+	for resources as address, rc {
+		allRes[address] = rc
+	}
+}
+
+#print(allRes)
+
+# Fetch all resources which are not allowed as per deny services list
+violatingResources = plan.filter_attribute_not_contains_list(allRes,
+	"type", deny_services, true)
+print(violatingResources)
+
+GCP_IAM_CUSTOM = rule {length(violatingResources["messages"]) is 0}
+
+
 # Main rule
-main = rule { GCP_IAM_ENTITY }
+main = rule { GCP_IAM_ENTITY and GCP_IAM_CUSTOM  }
